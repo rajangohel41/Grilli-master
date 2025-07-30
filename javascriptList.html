@@ -1,0 +1,32 @@
+<select id="dropdown">
+  <option value="item1">Item 1</option>
+  <option value="item2">Item 2</option>
+  <option value="item3">Item 3</option>
+</select>
+
+<button onclick="addToList()">Add to List</button>
+
+<ul id="list"></ul>
+
+<script>
+  // Create an empty array to store the selected items
+  const selectedItems = [];
+
+  // Define the addToList function
+  function addToList() {
+    // Get the selected option value from the dropdown
+    const selectedValue = document.getElementById("dropdown").value;
+
+    // Add the selected value to the array
+    selectedItems.push(selectedValue);
+
+    // Display the updated list on the page
+    const list = document.getElementById("list");
+    list.innerHTML = "";
+    for (const item of selectedItems) {
+      const li = document.createElement("li");
+      li.textContent = item;
+      list.appendChild(li);
+    }
+  }
+</script>
